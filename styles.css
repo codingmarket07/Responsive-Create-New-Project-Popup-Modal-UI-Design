@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
 :root {
+  --bg-clr: #f5f7ff;
   --white: #fff;
   --primary: #4b6fff;
   --btn-hvrbrd-clr: #133bc8;
@@ -19,7 +20,7 @@
 }
 
 body {
-  background: #f5f7ff;
+  background: var(--bg-clr);
   font-size: 14px;
   color: var(--text-clr);
 }
@@ -199,22 +200,11 @@ body {
   border-radius: 3px;
 }
 
-.project_wrap
-  .project
-  .project_type
-  .pt_item
-  .input_checkbox:checked
-  ~ .checkmark {
+.project_wrap .project .project_type .pt_item .input_checkbox:checked ~ .checkmark {
   border-color: var(--primary);
 }
 
-.project_wrap
-  .project
-  .project_type
-  .pt_item
-  .input_checkbox:checked
-  ~ .icon
-  .i,
+.project_wrap .project .project_type .pt_item .input_checkbox:checked ~ .icon .i,
 .project_wrap .project .project_type .pt_item .input_checkbox:checked ~ .text {
   color: var(--primary);
 }
