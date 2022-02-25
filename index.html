@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Create New Project Popup Modal UI Design</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+
+<div class="wrapper">
+  <button class="main_btn create_btn">Create New Project</button>
+
+  <div class="project_wrap">
+    <div class="shadow close_btn"></div>
+    <div class="project">
+      <div class="header">
+        <div class="title">Create New Project</div>
+        <span class="icon close_btn">
+          <ion-icon name="close-outline" class="i"></ion-icon>
+        </span>
+      </div>
+      <div class="container">
+        <div class="body">
+          <div class="project_name_wrap">
+            <p class="label_title">
+              Project Name
+            </p>
+            <input type="text" class="input_text" placeholder="Enter the project name">
+          </div>
+          <div class="project_type_wrap">
+            <p class="label_title">
+              Choose Project Type
+            </p>
+            <div class="project_type">
+              <label for="pt1" class="pt_item">
+                <input type="radio" name="project_type" class="input_checkbox" id="pt1">
+                <div class="checkmark"></div>
+                <div class="icon">
+                  <ion-icon name="desktop-outline" class="i"></ion-icon>
+                </div>
+                <div class="text">Desktop</div>
+              </label>
+              <label for="pt2" class="pt_item">
+                <input type="radio" name="project_type" class="input_checkbox" id="pt2">
+                <div class="checkmark"></div>
+                <div class="icon">
+                  <ion-icon name="phone-portrait-outline" class="i"></ion-icon>
+                </div>
+                <div class="text">Phone</div>
+              </label>
+              <label for="pt3" class="pt_item">
+                <input type="radio" name="project_type" class="input_checkbox" id="pt3">
+                <div class="checkmark"></div>
+                <div class="icon">
+                  <ion-icon name="tablet-landscape-outline" class="i"></ion-icon>
+                </div>
+                <div class="text">Tablet</div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="btn_wrap">
+            <button class="cancel_btn close_btn">
+              Cancel
+            </button>
+            <button class="create_btn">
+              Create New Project
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var main_btn = document.querySelector(".main_btn");
+var wrapper = document.querySelector(".wrapper");
+var close_btns = document.querySelectorAll(".close_btn");
+
+main_btn.addEventListener("click", function () {
+  wrapper.classList.add("active");
+});
+
+close_btns.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    wrapper.classList.remove("active");
+  });
+});
+
+</script>
+
+</body>
+</html>

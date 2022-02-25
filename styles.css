@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+:root {
+  --white: #fff;
+  --primary: #4b6fff;
+  --btn-hvrbrd-clr: #133bc8;
+  --header-bg-clr: #f7f9fa;
+  --text-clr: #697296;
+  --border-clr: #d1dce3;
+  --icon-clr: #c2c8df;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background: #f5f7ff;
+  font-size: 14px;
+  color: var(--text-clr);
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper button {
+  border: 0;
+  padding: 12px 20px;
+  background: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.wrapper button.create_btn {
+  border: 1px solid var(--btn-hvrbrd-clr);
+  background: var(--primary);
+  color: var(--white);
+}
+
+.wrapper button.create_btn:hover {
+  background: var(--btn-hvrbrd-clr);
+}
+
+.wrapper button.cancel_btn {
+  border: 1px solid var(--border-clr);
+  color: var(--text-clr);
+  margin-right: 10px;
+}
+
+.wrapper button.cancel_btn:hover {
+  background: var(--border-clr);
+}
+
+.project_wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.project_wrap .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.wrapper.active .project_wrap {
+  visibility: visible;
+  transition: all 0.5s ease;
+}
+
+.wrapper.active .project_wrap .shadow {
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.project_wrap .project {
+  width: 450px;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  border-radius: 3px;
+}
+
+.project_wrap .project .header {
+  background: var(--header-bg-clr);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  position: relative;
+  padding: 20px;
+}
+
+.project_wrap .project .header .title {
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.project_wrap .project .header .icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--icon-clr);
+}
+
+.project_wrap .project .header .icon:hover {
+  color: var(--text-clr);
+}
+
+.project_wrap .project .container {
+  padding: 25px;
+}
+
+.project_wrap .project .container .body,
+.project_wrap .project .project_name_wrap {
+  margin-bottom: 25px;
+}
+
+.project_wrap .project .container .footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.project_wrap .project .label_title {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.project_wrap .project .input_text {
+  border: 1px solid var(--border-clr);
+  padding: 12px;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.project_wrap .project .input_text:focus {
+  border-color: var(--primary);
+}
+
+.project_wrap .project .project_type {
+  display: flex;
+}
+
+.project_wrap .project .project_type .pt_item {
+  position: relative;
+  padding: 20px;
+  width: 100px;
+  margin-right: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.project_wrap .project .project_type .pt_item .input_checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.project_wrap .project .project_type .pt_item:last-child {
+  margin-right: 0;
+}
+
+.project_wrap .project .project_type .pt_item .icon .i {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.project_wrap .project .project_type .pt_item .checkmark {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid var(--border-clr);
+  border-radius: 3px;
+}
+
+.project_wrap
+  .project
+  .project_type
+  .pt_item
+  .input_checkbox:checked
+  ~ .checkmark {
+  border-color: var(--primary);
+}
+
+.project_wrap
+  .project
+  .project_type
+  .pt_item
+  .input_checkbox:checked
+  ~ .icon
+  .i,
+.project_wrap .project .project_type .pt_item .input_checkbox:checked ~ .text {
+  color: var(--primary);
+}
+
+@media screen and (max-width: 472px) {
+  .project_wrap .project {
+    width: 95%;
+  }
+  .project_wrap .project .project_type {
+    flex-direction: column;
+  }
+  .project_wrap .project .project_type .pt_item {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .project_wrap .project .container .footer {
+    justify-content: space-between;
+  }
+  .project_wrap .project .container .footer .btn_wrap {
+    display: flex;
+    width: 100%;
+  }
+  .project_wrap .project .container .footer button {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .project_wrap .project .container .footer .btn_wrap {
+    flex-direction: column;
+  }
+  .project_wrap .project .container .footer button {
+    width: 100%;
+  }
+  .project_wrap .project .container .footer button.cancel_btn {
+    margin-bottom: 10px;
+  }
+}
